@@ -49,8 +49,9 @@ const detailedServiceGroups = [
   {
     category: "III. Судебное представительство",
     items: [
-      { name: "Подготовка иска (суды общей юрисдикции)", price: "от 20 000 / 40 000 руб (физ./юр. лица)" },
-      { name: "Участие в заседании (суды общей юрисдикции)", price: "от 10 000 / 20 000 руб" },
+      { name: "Подготовка иска", price: "от 20 000 / 40 000 руб (физ./юр. лица)" },
+      { name: "Составление других процессуальных документов (кроме искового заявления)", price: "от 20 000 руб" },
+      { name: "Участие в заседании", price: "от 10 000 / 20 000 руб" },
       { name: "Комплексное ведение дела (арбитраж)", price: "от 100 000 руб (1 инстанция)" },
     ],
   },
@@ -115,9 +116,9 @@ export function ServicesSection() {
                     className="space-y-6"
                 >
                     <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         {group.items.map((service, itemIndex) => (
-                            <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-primary hover:bg-accent transition-colors duration-300">
+                            <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-primary/50 hover:bg-accent transition-colors duration-300">
                                 <CardHeader className="flex-grow">
                                     <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground">{service.name}</CardTitle>
 
