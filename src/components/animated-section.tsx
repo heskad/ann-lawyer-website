@@ -7,9 +7,10 @@ type AnimatedSectionProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  animationType?: 'fade-up' | 'slide-left' | 'slide-right';
 };
 
-export function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
+export function AnimatedSection({ children, className, delay = 0, animationType = 'fade-up' }: AnimatedSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -41,12 +42,21 @@ export function AnimatedSection({ children, className, delay = 0 }: AnimatedSect
     };
   }, [delay]);
 
+  const animationClasses = {
+    'fade-up': 'opacity-0 translate-y-8',
+    'slide-left': 'opacity-0 -translate-x-12',
+    'slide-right': 'opacity-0 translate-x-12',
+  };
+
+  const initialClass = animationClasses[animationType];
+  const finalClass = 'opacity-100 translate-x-0 translate-y-0';
+
   return (
     <div
       ref={ref}
       className={cn(
         'transition-all duration-1000 ease-out',
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8',
+        isVisible ? finalClass : initialClass,
         className
       )}
     >
