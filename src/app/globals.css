@@ -16,7 +16,7 @@
     --secondary-foreground: 194 50% 15%;
     --muted: 33 13% 91%;
     --muted-foreground: 72 6% 56%;
-    --accent: 19 30% 28%;
+    --accent: 27 34% 28%;
     --accent-foreground: 33 13% 97%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -51,7 +51,7 @@
     --secondary-foreground: 33 13% 98%;
     --muted: 194 50% 15%;
     --muted-foreground: 72 6% 60%;
-    --accent: 19 30% 38%;
+    --accent: 27 34% 38%;
     --accent-foreground: 33 13% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -80,5 +80,13 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  ::-moz-selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
   }
 }
