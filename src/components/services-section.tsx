@@ -29,7 +29,7 @@ const topServices = [
 ];
 
 const detailedServiceGroups = [
-  {
+    {
     category: "I. Консультации и договоры",
     items: [
       { name: "Письменная консультация", price: "от 10 000 руб" },
@@ -42,8 +42,8 @@ const detailedServiceGroups = [
     category: "II. Отдельные услуги по банкротству",
     items: [
       { name: "Включение в реестр кредиторов", price: "от 100 000 руб/инстанция" },
-      { name: "Субсидиарная ответственность", price: "от 400 000 руб/инстанция" },
       { name: "Оспаривание сделок", price: "от 150 000 руб/инстанция" },
+      { name: "Субсидиарная ответственность", price: "от 400 000 руб/инстанция" },
     ],
   },
   {
@@ -59,7 +59,7 @@ const detailedServiceGroups = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-[#c6bab5] py-20 sm:py-32">
+    <section id="services" className="bg-[#debea2] py-20 sm:py-32">
       <div className="container">
         <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Направления работы</h2>
@@ -102,7 +102,7 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <div id="detailed-services" className="mt-24 pt-12 border-t border-border">
+        <div id="detailed-services" className="mt-24 pt-12 border-t border-border/50">
           <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-headline font-bold">Подробный перечень услуг и цены</h2>
           </AnimatedSection>
@@ -117,7 +117,7 @@ export function ServicesSection() {
                     <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {group.items.map((service, itemIndex) => (
-                            <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-[#326744] hover:bg-accent transition-colors duration-300">
+                            <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-primary hover:bg-accent transition-colors duration-300">
                                 <CardHeader className="flex-grow">
                                     <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground">{service.name}</CardTitle>
 
