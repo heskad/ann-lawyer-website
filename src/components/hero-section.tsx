@@ -24,12 +24,11 @@ export function HeroSection() {
         </div>
         <div className="flex justify-center lg:order-last order-first">
           <Image
-            src="https://placehold.co/500x500.png"
+            src="/lawyer-portrait.png"
             alt="Портрет юриста"
             width={500}
             height={500}
             className="rounded-full object-cover aspect-square shadow-2xl"
-            data-ai-hint="lawyer portrait"
           />
         </div>
       </section>
