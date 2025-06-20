@@ -60,7 +60,7 @@ export function ContactSection() {
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Свяжитесь со мной</h2>
           <p className="text-lg text-muted-foreground">
-            Есть вопрос или нужна консультация? Я буду рад помочь вам.
+            Есть вопрос или нужна консультация? Я буду рада помочь вам.
           </p>
         </div>
 
