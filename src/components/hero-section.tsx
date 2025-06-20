@@ -24,7 +24,7 @@ export function HeroSection() {
         </div>
         <div className="flex justify-center lg:order-last order-first">
           <Image
-            src="/lawyer-portrait.png"
+            src="/photo.png"
             alt="Портрет юриста"
             width={500}
             height={500}
