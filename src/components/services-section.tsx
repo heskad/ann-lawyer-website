@@ -88,7 +88,11 @@ export function ServicesSection() {
                   )}
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full" variant={service.popular ? 'default' : 'secondary'}>
+                  <Button
+                    asChild
+                    className={`w-full ${service.popular ? 'hover:bg-accent' : ''}`}
+                    variant={service.popular ? 'default' : 'secondary'}
+                  >
                     <a href={service.href}>{service.cta}</a>
                   </Button>
                 </CardFooter>
@@ -112,12 +116,12 @@ export function ServicesSection() {
                     <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {group.items.map((service, itemIndex) => (
-                            <Card key={itemIndex} className="flex flex-col border-2 border-transparent hover:border-[#326744] transition-colors duration-300">
+                            <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-[#326744] hover:bg-accent transition-colors duration-300">
                                 <CardHeader className="flex-grow">
-                                    <CardTitle className="text-xl font-body font-semibold">{service.name}</CardTitle>
+                                    <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground">{service.name}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
-                                    <p className="text-lg text-muted-foreground font-semibold">{service.price}</p>
+                                    <p className="text-lg text-muted-foreground font-semibold group-hover:text-accent-foreground">{service.price}</p>
                                 </CardContent>
                             </Card>
                         ))}
