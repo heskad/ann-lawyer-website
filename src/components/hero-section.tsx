@@ -29,6 +29,7 @@ export function HeroSection() {
             width={500}
             height={500}
             className="rounded-full object-cover aspect-square shadow-2xl"
+            style={{ objectPosition: 'center 40%' }}
           />
         </div>
       </section>
