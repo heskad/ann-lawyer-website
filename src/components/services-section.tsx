@@ -58,11 +58,11 @@ const detailedServiceGroups = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-secondary/50 py-20 sm:py-32">
+    <section id="services" className="bg-[#8F6250] py-20 sm:py-32">
       <div className="container">
         <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Направления работы</h2>
-          <p className="text-lg text-muted-foreground">
+          <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary-foreground">Направления работы</h2>
+          <p className="text-lg text-primary-foreground/90">
             Основные сферы моей юридической практики. Для детального ознакомления с услугами и ценами, пролистайте ниже.
           </p>
         </AnimatedSection>
@@ -97,9 +97,9 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <div id="detailed-services" className="mt-24 pt-12 border-t">
+        <div id="detailed-services" className="mt-24 pt-12 border-t border-primary-foreground/20">
           <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-headline font-bold">Подробный перечень услуг и цены</h2>
+              <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary-foreground">Подробный перечень услуг и цены</h2>
           </AnimatedSection>
 
           <div className="space-y-16">
@@ -109,7 +109,7 @@ export function ServicesSection() {
                     animationType={groupIndex % 2 === 0 ? 'slide-left' : 'slide-right'}
                     className="space-y-6"
                 >
-                    <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
+                    <h3 className="text-2xl font-headline font-semibold text-center md:text-left text-primary-foreground">{group.category}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {group.items.map((service, itemIndex) => (
                             <Card key={itemIndex} className="flex flex-col">
