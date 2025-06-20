@@ -90,7 +90,7 @@ export function ServicesSection() {
                 <CardFooter>
                   <Button
                     asChild
-                    className={`w-full ${service.popular ? 'hover:bg-accent' : ''}`}
+                    className={`w-full hover:bg-accent ${!service.popular ? 'hover:text-accent-foreground' : ''}`}
                     variant={service.popular ? 'default' : 'secondary'}
                   >
                     <a href={service.href}>{service.cta}</a>
