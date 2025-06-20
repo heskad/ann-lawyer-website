@@ -30,20 +30,20 @@ const topServices = [
 
 const detailedServiceGroups = [
   {
-    category: "I. Отдельные услуги по банкротству",
-    items: [
-      { name: "Включение в реестр кредиторов", price: "от 100 000 руб/инстанция" },
-      { name: "Субсидиарная ответственность", price: "от 400 000 руб/инстанция" },
-      { name: "Оспаривание сделок", price: "от 150 000 руб/инстанция" },
-    ],
-  },
-  {
-    category: "II. Консультации и договоры",
+    category: "I. Консультации и договоры",
     items: [
       { name: "Письменная консультация", price: "от 10 000 руб" },
       { name: "Составление договоров", price: "от 10 000 руб" },
       { name: "Почасовая работа", price: "от 7 000 руб/час" },
       { name: "Сопровождение сделок", price: "от 15 000 руб" },
+    ],
+  },
+  {
+    category: "II. Отдельные услуги по банкротству",
+    items: [
+      { name: "Включение в реестр кредиторов", price: "от 100 000 руб/инстанция" },
+      { name: "Оспаривание сделок", price: "от 150 000 руб/инстанция" },
+      { name: "Субсидиарная ответственность", price: "от 400 000 руб/инстанция" },
     ],
   },
   {
@@ -115,7 +115,7 @@ export function ServicesSection() {
                     className="space-y-6"
                 >
                     <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {group.items.map((service, itemIndex) => (
                             <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-primary hover:bg-accent transition-colors duration-300">
                                 <CardHeader className="flex-grow">
