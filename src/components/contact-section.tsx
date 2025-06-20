@@ -42,13 +42,13 @@ export function ContactSection() {
   useEffect(() => {
     if (state.status === "success") {
       toast({
-        title: "Message Sent!",
+        title: "Сообщение отправлено!",
         description: state.message,
       });
       form.reset();
     } else if (state.status === "error") {
       toast({
-        title: "Error",
+        title: "Ошибка",
         description: state.message,
         variant: "destructive",
       });
@@ -59,9 +59,9 @@ export function ContactSection() {
     <AnimatedSection>
       <section id="contact" className="container py-20 sm:py-32">
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Свяжитесь со мной</h2>
           <p className="text-lg text-muted-foreground">
-            Have a project in mind or just want to say hello? I'd love to hear from you.
+            Есть вопрос или нужна консультация? Я буду рад помочь вам.
           </p>
         </div>
 
@@ -73,9 +73,9 @@ export function ContactSection() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Имя</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your Name" {...field} />
+                      <Input placeholder="Ваше Имя" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -86,9 +86,9 @@ export function ContactSection() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>Электронная почта</FormLabel>
                     <FormControl>
-                      <Input placeholder="your.email@example.com" {...field} />
+                      <Input placeholder="vash.email@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,10 +99,10 @@ export function ContactSection() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Сообщение</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Tell me about your project or inquiry..."
+                        placeholder="Опишите вашу ситуацию или вопрос..."
                         className="min-h-[150px]"
                         {...field}
                       />

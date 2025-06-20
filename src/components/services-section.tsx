@@ -5,43 +5,39 @@ import { AnimatedSection } from "./animated-section";
 
 const services = [
   {
-    title: "Basic Website",
-    price: "$1,200",
-    description: "A professional landing page to get you started.",
+    title: "Отдельные услуги по банкротству",
+    price: "от 100 000 руб.",
+    description: "Для кредиторов и должников в делах о несостоятельности.",
     features: [
-      "1-3 Pages",
-      "Responsive Design",
-      "Contact Form",
-      "Basic SEO Setup",
+      "Включение в реестр кредиторов: от 100 000 руб/инстанция",
+      "Оспаривание сделок: от 150 000 руб/инстанция",
+      "Субсидиарная ответственность: от 400 000 руб/инстанция",
     ],
-    cta: "Choose Basic",
+    cta: "Начать процедуру",
   },
   {
-    title: "Business Pro",
-    price: "$2,500",
-    description: "A comprehensive solution for growing businesses.",
+    title: "Консультации и договоры",
+    price: "Бесплатно",
+    description: "Первая устная консультация для оценки вашей ситуации.",
     features: [
-      "Up to 10 Pages",
-      "Custom Design",
-      "Content Management System",
-      "Advanced SEO",
-      "1 month of support",
+      "Устная консультация: бесплатно",
+      "Письменная консультация: от 10 000 руб",
+      "Составление договоров: от 10 000 руб",
+      "Почасовая работа: от 7 000 руб/час",
     ],
-    cta: "Choose Pro",
+    cta: "Записаться на консультацию",
     popular: true,
   },
   {
-    title: "E-Commerce",
-    price: "$4,800+",
-    description: "A full-featured online store to sell your products.",
+    title: "Судебное представительство",
+    price: "от 10 000 руб.",
+    description: "Представительство в судах общей юрисдикции и арбитражных судах.",
     features: [
-      "Unlimited Products",
-      "Payment Gateway Integration",
-      "Inventory Management",
-      "Customer Accounts",
-      "3 months of support",
+      "Подготовка иска: от 20 000 руб",
+      "Участие в заседании: от 10 000 руб",
+      "Комплексное ведение дела в арбитраже: от 100 000 руб",
     ],
-    cta: "Choose E-Commerce",
+    cta: "Защитить интересы",
   },
 ];
 
@@ -50,9 +46,9 @@ export function ServicesSection() {
     <section id="services" className="bg-secondary/50 py-20 sm:py-32">
       <div className="container">
         <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Services & Pricing</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Услуги и Цены</h2>
           <p className="text-lg text-muted-foreground">
-            Choose a plan that works for you. I offer flexible and transparent pricing to fit your needs.
+            Выберите подходящий для вас вариант. Я предлагаю гибкие и прозрачные цены для решения ваших юридических задач.
           </p>
         </AnimatedSection>
 
@@ -69,7 +65,7 @@ export function ServicesSection() {
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                        <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
                     ))}

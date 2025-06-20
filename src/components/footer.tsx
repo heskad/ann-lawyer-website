@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="border-t bg-secondary/50">
       <div className="container flex items-center justify-center py-6">
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} PortfolioFlow. All rights reserved.
+          &copy; {new Date().getFullYear()} Правовая Защита. Все права защищены.
         </p>
       </div>
     </footer>

@@ -20,7 +20,7 @@ export async function handleContactForm(
 
   if (!validatedFields.success) {
     return {
-      message: "There was an error with your submission.",
+      message: "При отправке произошла ошибка. Проверьте правильность введенных данных.",
       status: "error",
       data: {
         name: formData.get("name") as string,
@@ -36,7 +36,7 @@ export async function handleContactForm(
   console.log("Form data:", validatedFields.data);
 
   return {
-    message: "Thank you for your message! I'll get back to you soon.",
+    message: "Спасибо за ваше сообщение! Я свяжусь с вами в ближайшее время.",
     status: "success",
   };
 }
