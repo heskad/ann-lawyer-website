@@ -1,6 +1,5 @@
 "use client";
 
-import { useFormState } from "react-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -16,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { useEffect } from "react";
+import { useActionState, useEffect } from "react";
 import { handleContactForm } from "@/lib/actions";
 import { AnimatedSection } from "./animated-section";
 import { contactSchema } from "@/lib/types";
@@ -25,7 +24,7 @@ import { SubmitButton } from "./submit-button";
 
 export function ContactSection() {
   const { toast } = useToast();
-  const [state, formAction] = useFormState(handleContactForm, {
+  const [state, formAction] = useActionState(handleContactForm, {
     message: "",
     status: "",
   });
