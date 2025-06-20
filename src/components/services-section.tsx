@@ -58,7 +58,7 @@ const detailedServiceGroups = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-[#8F6250] py-20 sm:py-32">
+    <section id="services" className="bg-[#74593E] py-20 sm:py-32">
       <div className="container">
         <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-headline font-bold text-primary-foreground">Направления работы</h2>
@@ -112,7 +112,7 @@ export function ServicesSection() {
                     <h3 className="text-2xl font-headline font-semibold text-center md:text-left text-primary-foreground">{group.category}</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {group.items.map((service, itemIndex) => (
-                            <Card key={itemIndex} className="flex flex-col">
+                            <Card key={itemIndex} className="flex flex-col border-2 border-transparent hover:border-[#326744] transition-colors duration-300">
                                 <CardHeader className="flex-grow">
                                     <CardTitle className="text-xl font-body font-semibold">{service.name}</CardTitle>
                                 </CardHeader>
