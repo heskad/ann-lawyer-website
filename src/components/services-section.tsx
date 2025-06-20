@@ -39,7 +39,7 @@ const detailedServiceGroups = [
     ],
   },
   {
-    category: "II. Услуги по банкротству",
+    category: "II. Отдельные услуги по банкротству",
     items: [
       { name: "Включение в реестр кредиторов", price: "от 100 000 руб/инстанция" },
       { name: "Субсидиарная ответственность", price: "от 400 000 руб/инстанция" },
@@ -59,11 +59,11 @@ const detailedServiceGroups = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-secondary py-20 sm:py-32">
+    <section id="services" className="bg-[#c6bab5] py-20 sm:py-32">
       <div className="container">
         <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Направления работы</h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-foreground/80">
             Основные сферы моей юридической практики. Для детального ознакомления с услугами и ценами, пролистайте ниже.
           </p>
         </AnimatedSection>
@@ -91,7 +91,7 @@ export function ServicesSection() {
                 <CardFooter>
                   <Button
                     asChild
-                    className={`w-full hover:bg-accent ${!service.popular ? 'hover:text-accent-foreground' : ''}`}
+                    className="w-full hover:bg-accent hover:text-accent-foreground"
                     variant={service.popular ? 'default' : 'secondary'}
                   >
                     <a href={service.href}>{service.cta}</a>
@@ -120,6 +120,7 @@ export function ServicesSection() {
                             <Card key={itemIndex} className="group flex flex-col border-2 border-transparent hover:border-[#326744] hover:bg-accent transition-colors duration-300">
                                 <CardHeader className="flex-grow">
                                     <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground">{service.name}</CardTitle>
+
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-lg text-muted-foreground font-semibold group-hover:text-accent-foreground">{service.price}</p>
