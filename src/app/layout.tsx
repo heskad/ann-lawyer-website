@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Юридические Услуги | Правовая Защита',
+  title: 'Юридические Услуги | ИП Кондратьева А.В.',
   description: 'Персональный сайт юриста. Консультации, банкротство, представительство в суде.',
 };
 
