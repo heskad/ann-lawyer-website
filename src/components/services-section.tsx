@@ -1,7 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 import { AnimatedSection } from "./animated-section";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { ConsultationModal } from "./consultation-modal";
 
 const topServices = [
   {
@@ -10,6 +15,7 @@ const topServices = [
     cta: "Узнать больше",
     href: "#detailed-services",
     popular: false,
+    isDialog: false,
   },
   {
     title: "Бесплатная консультация",
@@ -18,6 +24,7 @@ const topServices = [
     cta: "Записаться",
     href: "#contact",
     popular: true,
+    isDialog: true,
   },
   {
     title: "Судебное представительство",
@@ -25,6 +32,7 @@ const topServices = [
     cta: "Узнать больше",
     href: "#detailed-services",
     popular: false,
+    isDialog: false,
   },
 ];
 
@@ -38,7 +46,7 @@ const detailedServiceGroups = [
       { name: "Сопровождение сделок", price: "от 15 000 руб" },
     ],
   },
-  {
+    {
     category: "II. Судебное представительство",
     items: [
       { name: "Подготовка иска", price: "от 20 000 / 40 000 руб (физ./юр. лица)" },
@@ -57,8 +65,9 @@ const detailedServiceGroups = [
   },
 ];
 
-
 export function ServicesSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="services" className="bg-secondary py-20 sm:py-32">
       <div className="container">
@@ -90,13 +99,29 @@ export function ServicesSection() {
                   )}
                 </CardContent>
                 <CardFooter>
-                  <Button
-                    asChild
-                    className="w-full hover:bg-accent hover:text-accent-foreground"
-                    variant={service.popular ? 'default' : 'secondary'}
-                  >
-                    <a href={service.href}>{service.cta}</a>
-                  </Button>
+                  {service.isDialog ? (
+                    <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+                      <DialogTrigger asChild>
+                         <Button
+                            className="w-full hover:bg-accent hover:text-accent-foreground"
+                            variant={service.popular ? 'default' : 'secondary'}
+                          >
+                            {service.cta}
+                          </Button>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[480px]">
+                        <ConsultationModal setIsModalOpen={setIsModalOpen} />
+                      </DialogContent>
+                    </Dialog>
+                  ) : (
+                    <Button
+                      asChild
+                      className="w-full hover:bg-accent hover:text-accent-foreground"
+                      variant={service.popular ? 'default' : 'secondary'}
+                    >
+                      <a href={service.href}>{service.cta}</a>
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             </AnimatedSection>

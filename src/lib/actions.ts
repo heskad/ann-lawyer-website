@@ -1,11 +1,10 @@
 "use server";
 import { z } from "zod";
-import { contactSchema } from "./types";
+import { contactSchema, consultationSchema } from "./types";
 
 type State = {
   message: string;
   status: "success" | "error" | "";
-  data?: z.infer<typeof contactSchema>;
 };
 
 export async function handleContactForm(
@@ -22,11 +21,6 @@ export async function handleContactForm(
     return {
       message: "При отправке произошла ошибка. Проверьте правильность введенных данных.",
       status: "error",
-      data: {
-        name: formData.get("name") as string,
-        email: formData.get("email") as string,
-        message: formData.get("message") as string,
-      },
     };
   }
 
@@ -37,6 +31,35 @@ export async function handleContactForm(
 
   return {
     message: "Спасибо за ваше сообщение! Я свяжусь с вами в ближайшее время.",
+    status: "success",
+  };
+}
+
+
+export async function handleConsultationForm(
+  prevState: State,
+  formData: FormData
+): Promise<State> {
+  const validatedFields = consultationSchema.safeParse({
+    name: formData.get("name"),
+    contactMethod: formData.get("contactMethod"),
+    contact: formData.get("contact"),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      message: "Пожалуйста, заполните все поля корректно.",
+      status: "error",
+    };
+  }
+
+  // Simulate processing the request
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  console.log("Consultation Request:", validatedFields.data);
+
+  return {
+    message: "Спасибо! Ваша заявка принята. Я скоро с вами свяжусь.",
     status: "success",
   };
 }
