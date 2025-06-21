@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, HelpCircle } from "lucide-react";
 import { AnimatedSection } from "./animated-section";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ConsultationModal } from "./consultation-modal";
@@ -159,14 +159,15 @@ export function ServicesSection() {
                             <Card 
                                 key={itemIndex} 
                                 onClick={() => handleServiceClick(service)}
-                                className="group flex flex-col border-2 border-transparent hover:border-primary/50 hover:bg-accent transition-colors duration-300 cursor-help"
+                                className="group relative flex flex-col border-2 border-transparent hover:border-primary/50 hover:bg-accent transition-colors duration-300 cursor-pointer"
                             >
                                 <CardHeader className="flex-grow">
-                                    <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground">{service.name}</CardTitle>
+                                    <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground pr-8">{service.name}</CardTitle>
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-lg text-muted-foreground font-semibold group-hover:text-accent-foreground">{service.price}</p>
                                 </CardContent>
+                                <HelpCircle className="absolute top-6 right-6 h-5 w-5 text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:text-accent-foreground" />
                             </Card>
                         ))}
                     </div>
