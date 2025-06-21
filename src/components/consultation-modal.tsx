@@ -26,6 +26,7 @@ import { handleConsultationForm } from "@/lib/actions";
 import { consultationSchema } from "@/lib/types";
 import { SubmitButton } from "./submit-button";
 import { Mail, Phone, Send } from "lucide-react";
+import { Label } from "@/components/ui/label";
 
 type ConsultationModalProps = {
   setIsModalOpen: (isOpen: boolean) => void;
@@ -85,14 +86,14 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
       <>
         <DialogHeader>
           <DialogTitle className="font-headline text-2xl">Условия бесплатной консультации</DialogTitle>
-          <DialogDescription className="pt-4 text-base text-muted-foreground">
+          <div className="pt-4 text-base text-muted-foreground">
             <ul className="space-y-2 list-disc pl-5">
               <li>Консультация проводится устно по телефону или в мессенджере.</li>
               <li>Длительность консультации — до 20 минут.</li>
               <li>В рамках консультации проводится первичный анализ вашей ситуации и определяются возможные пути решения.</li>
               <li>Разработка документов и детальный план действий не входят в бесплатную консультацию.</li>
             </ul>
-          </DialogDescription>
+          </div>
         </DialogHeader>
         <DialogFooter className="pt-6">
           <Button
