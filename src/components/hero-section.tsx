@@ -11,7 +11,7 @@ export function HeroSection() {
             Профессиональная юридическая помощь
           </h1>
           <p className="text-lg text-muted-foreground max-w-[600px]">
-            Опытный юрист, специализирующийся на банкротстве и представлении интересов в суде. Добро пожаловать на мой персональный сайт.
+            Опытный юрист, специализирующийся на банкротстве и представлении интересов в суде. Добро пожаловать на персональный сайт Кондратьевой А. В.
           </p>
           <div className="flex gap-4">
             <Button asChild size="lg">
@@ -29,7 +29,7 @@ export function HeroSection() {
             width={500}
             height={500}
             className="rounded-full object-cover aspect-square shadow-2xl"
-            style={{ objectPosition: 'center 20%' }}
+            style={{ objectPosition: 'center 10%' }}
           />
         </div>
       </section>
