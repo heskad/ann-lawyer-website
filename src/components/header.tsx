@@ -12,7 +12,7 @@ export function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <a href="#home" className="mr-6 flex items-center space-x-2">
           <Gavel className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline sm:inline-block">
+          <span className="hidden font-bold font-headline sm:inline-block">
             ИП Кондратьева А.В.
           </span>
         </a>
