@@ -18,7 +18,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -45,6 +45,15 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
   );
   const { toast } = useToast();
 
+  const [num1, setNum1] = useState(1);
+  const [num2, setNum2] = useState(2);
+
+  useEffect(() => {
+    setNum1(Math.floor(Math.random() * 10));
+    setNum2(Math.floor(Math.random() * 10));
+  }, []);
+
+
   const [state, formAction] = useActionState(handleConsultationForm, {
     message: "",
     status: "",
@@ -56,11 +65,12 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
       name: "",
       contact: "",
       contactMethod: "telegram",
+      captcha: "",
     },
   });
 
   const contactMethod = form.watch("contactMethod");
-  const contactDetails = useMemo(() => contactOptions[contactMethod], [contactMethod]);
+  const contactDetails = useMemo(() => contactOptions[contactMethod as keyof typeof contactOptions], [contactMethod]);
 
   useEffect(() => {
     if (state.status === "success") {
@@ -118,6 +128,7 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
         </DialogHeader>
         <Form {...form}>
           <form action={formAction} className="space-y-6">
+             <input type="hidden" name="captchaExpected" value={num1 + num2} />
             <FormField
               control={form.control}
               name="name"
@@ -138,25 +149,20 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
                 <FormItem className="space-y-3">
                   <FormLabel>Предпочитаемый способ связи</FormLabel>
                   <FormControl>
-                    <RadioGroup
-                      onValueChange={field.onChange}
+                    <Tabs
                       defaultValue={field.value}
-                      className="grid grid-cols-2 gap-4"
+                      onValueChange={field.onChange}
+                      className="w-full"
                     >
-                      {Object.entries(contactOptions).map(([key, value]) => (
-                        <FormItem key={key}>
-                          <FormControl>
-                            <RadioGroupItem value={key} className="sr-only" />
-                          </FormControl>
-                           <Label
-                            className={`flex items-center justify-center gap-2 rounded-md border-2 p-3 font-medium hover:bg-accent hover:text-accent-foreground cursor-pointer ${field.value === key ? 'border-primary bg-primary/10' : 'border-muted'}`}
-                           >
-                            {value.icon}
-                            {value.label}
-                          </Label>
-                        </FormItem>
-                      ))}
-                    </RadioGroup>
+                      <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+                        {Object.entries(contactOptions).map(([key, value]) => (
+                           <TabsTrigger key={key} value={key} className="flex flex-col sm:flex-row gap-2 py-2 sm:py-1.5">
+                             {value.icon}
+                             {value.label}
+                           </TabsTrigger>
+                        ))}
+                      </TabsList>
+                    </Tabs>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -170,6 +176,19 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
                     <FormLabel>{contactDetails.label}</FormLabel>
                     <FormControl>
                       <Input placeholder={contactDetails.placeholder} {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="captcha"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Для защиты от спама, решите задачу: {num1} + {num2} = ?</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Ваш ответ" {...field} type="number" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

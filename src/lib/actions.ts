@@ -44,14 +44,26 @@ export async function handleConsultationForm(
     name: formData.get("name"),
     contactMethod: formData.get("contactMethod"),
     contact: formData.get("contact"),
+    captcha: formData.get("captcha"),
   });
 
   if (!validatedFields.success) {
+    const firstError = validatedFields.error.errors[0].message;
     return {
-      message: "Пожалуйста, заполните все поля корректно.",
+      message: firstError || "Пожалуйста, заполните все поля корректно.",
       status: "error",
     };
   }
+  
+  const captchaExpected = formData.get("captchaExpected");
+
+  if (validatedFields.data.captcha !== captchaExpected) {
+    return {
+      message: "Неверный ответ на вопрос для защиты от спама.",
+      status: "error",
+    };
+  }
+
 
   // Simulate processing the request
   await new Promise((resolve) => setTimeout(resolve, 1000));

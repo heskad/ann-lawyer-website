@@ -22,4 +22,5 @@ export const consultationSchema = z.object({
   contact: z.string().min(5, {
     message: "Контактные данные должны содержать не менее 5 символов.",
   }),
+  captcha: z.string().nonempty({ message: "Пожалуйста, решите задачу." }),
 });
