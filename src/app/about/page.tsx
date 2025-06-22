@@ -126,7 +126,7 @@ export default function AboutPage() {
                                 <CardHeader>
                                     <CardTitle className="font-body text-xl">
                                       {edu.degree}
-                                      {edu.specialization && <span className="block text-lg font-normal text-muted-foreground mt-1">{edu.specialization}</span>}
+                                      {edu.specialization && <span className="ml-1 text-lg font-normal text-muted-foreground">{edu.specialization}</span>}
                                     </CardTitle>
                                     <CardDescription>{edu.institution}</CardDescription>
                                     <p className="text-sm text-muted-foreground pt-2">{edu.period}</p>
