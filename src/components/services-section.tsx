@@ -7,6 +7,7 @@ import { CheckCircle2, HelpCircle } from "lucide-react";
 import { AnimatedSection } from "./animated-section";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ConsultationModal } from "./consultation-modal";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const topServices = [
   {
@@ -69,6 +70,29 @@ const detailedServiceGroups: { category: string; items: ServiceItem[] }[] = [
       { name: "Субсидиарная ответственность", price: "от 400 000 руб/инстанция", details: "Привлечение контролирующих должника лиц (директоров, учредителей) к ответственности по долгам компании. Одна из самых сложных, но эффективных процедур для взыскания долга." },
     ],
   },
+];
+
+const faqData = [
+    {
+        question: "Как проходит первая консультация?",
+        answer: "Первая консультация — это устное общение по телефону или в мессенджере длительностью до 20 минут. В ходе разговора я провожу первичный анализ вашей ситуации, оцениваю перспективы и предлагаю возможные варианты действий. Консультация бесплатна и ни к чему вас не обязывает."
+    },
+    {
+        question: "Какие гарантии вы предоставляете?",
+        answer: "В юриспруденции гарантировать 100% результат невозможно, и любой юрист, обещающий это, вводит вас в заблуждение. Я гарантирую свою полную вовлеченность, профессионализм, конфиденциальность и честное информирование о реальных перспективах вашего дела на каждом этапе."
+    },
+    {
+        question: "Что входит в стоимость услуг?",
+        answer: "Стоимость каждой услуги четко оговорена. Например, комплексное ведение дела включает подготовку всех документов, участие во всех судебных заседаниях и регулярные отчеты. В стоимость не входят государственные пошлины, расходы на нотариуса или экспертизы. Все условия мы фиксируем в договоре."
+    },
+    {
+        question: "Можно ли оплачивать услуги в рассрочку?",
+        answer: "Да, я понимаю, что юридические услуги могут быть финансово затратными. Мы можем обсудить индивидуальные условия оплаты, включая возможность рассрочки. Главное — найти решение, которое будет комфортным для вас."
+    },
+    {
+        question: "Как мы будем взаимодействовать в процессе работы?",
+        answer: "Мы будем на связи удобным для вас способом: по телефону, электронной почте или в мессенджерах. Я буду регулярно информировать вас о ходе дела, присылать копии документов и согласовывать все ключевые шаги."
+    }
 ];
 
 export function ServicesSection() {
@@ -195,6 +219,26 @@ export function ServicesSection() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
+        <div id="faq" className="mt-24 pt-12 border-t border-border/50 scroll-mt-20">
+          <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl md:text-4xl font-headline font-bold">Часто задаваемые вопросы</h2>
+          </AnimatedSection>
+          <AnimatedSection delay={200}>
+            <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full">
+                    {faqData.map((faq, index) => (
+                        <AccordionItem key={index} value={`item-${index}`}>
+                            <AccordionTrigger className="text-left text-lg hover:no-underline">{faq.question}</AccordionTrigger>
+                            <AccordionContent className="text-base text-muted-foreground">
+                                {faq.answer}
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
+            </div>
+          </AnimatedSection>
+        </div>
 
       </div>
     </section>
