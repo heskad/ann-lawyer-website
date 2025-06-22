@@ -6,7 +6,7 @@ import { GraduationCap, Briefcase, Award, CheckCircle2 } from 'lucide-react';
 
 const educationData = [
   {
-    degree: "Юриспруденция (магистр)",
+    degree: "Юриспруденция (магистр): Гражданское и семейное право",
     institution: "Санкт-Петербургский государственный университет, Юридический факультет",
     period: "2019",
   },
