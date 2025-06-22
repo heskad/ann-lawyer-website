@@ -15,7 +15,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { useActionState, useEffect } from "react";
+import { useEffect } from "react";
+import { useFormState } from "react-dom";
 import { handleContactForm } from "@/lib/actions";
 import { AnimatedSection } from "./animated-section";
 import { contactSchema } from "@/lib/types";
@@ -24,7 +25,7 @@ import { SubmitButton } from "./submit-button";
 
 export function ContactSection() {
   const { toast } = useToast();
-  const [state, formAction] = useActionState(handleContactForm, {
+  const [state, formAction] = useFormState(handleContactForm, {
     message: "",
     status: "",
   });

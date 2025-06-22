@@ -3,7 +3,8 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { useState, useActionState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useFormState } from "react-dom";
 import {
   Form,
   FormControl,
@@ -47,14 +48,16 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
 
   const [num1, setNum1] = useState(1);
   const [num2, setNum2] = useState(2);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     setNum1(Math.floor(Math.random() * 10));
     setNum2(Math.floor(Math.random() * 10));
   }, []);
 
 
-  const [state, formAction] = useActionState(handleConsultationForm, {
+  const [state, formAction] = useFormState(handleConsultationForm, {
     message: "",
     status: "",
   });
@@ -116,6 +119,26 @@ export function ConsultationModal({ setIsModalOpen }: ConsultationModalProps) {
         </DialogFooter>
       </>
     );
+  }
+
+  if (!isClient) {
+    return (
+      <>
+        <DialogHeader>
+          <DialogTitle className="font-headline text-2xl">Запись на консультацию</DialogTitle>
+          <DialogDescription>
+            Загрузка формы...
+          </DialogDescription>
+        </DialogHeader>
+        <div className="space-y-6 animate-pulse">
+            <div className="h-10 bg-muted rounded-md"></div>
+            <div className="h-10 bg-muted rounded-md"></div>
+            <div className="h-10 bg-muted rounded-md"></div>
+            <div className="h-10 bg-muted rounded-md"></div>
+            <div className="h-11 bg-muted rounded-md"></div>
+        </div>
+      </>
+    )
   }
 
   return (
