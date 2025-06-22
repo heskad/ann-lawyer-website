@@ -13,7 +13,7 @@ const topServices = [
     title: "Банкротство",
     description: "Полное сопровождение процедур банкротства для физических и юридических лиц.",
     cta: "Узнать больше",
-    href: "#detailed-services",
+    href: "#bankruptcy-services",
     popular: false,
     isDialog: false,
   },
@@ -30,7 +30,7 @@ const topServices = [
     title: "Судебное представительство",
     description: "Защита ваших интересов в судах общей юрисдикции и арбитражных судах.",
     cta: "Узнать больше",
-    href: "#detailed-services",
+    href: "#judicial-representation",
     popular: false,
     isDialog: false,
   },
@@ -147,32 +147,38 @@ export function ServicesSection() {
           </AnimatedSection>
 
           <div className="space-y-16">
-            {detailedServiceGroups.map((group, groupIndex) => (
-                <AnimatedSection 
-                    key={group.category} 
-                    animationType={groupIndex % 2 === 0 ? 'slide-left' : 'slide-right'}
-                    className="space-y-6"
-                >
-                    <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                        {group.items.map((service, itemIndex) => (
-                            <Card 
-                                key={itemIndex} 
-                                onClick={() => handleServiceClick(service)}
-                                className="group relative flex flex-col border-2 border-transparent hover:border-primary/50 hover:bg-accent transition-colors duration-300 cursor-pointer"
-                            >
-                                <CardHeader className="flex-grow">
-                                    <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground pr-8">{service.name}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p className="text-lg text-muted-foreground font-semibold group-hover:text-accent-foreground">{service.price}</p>
-                                </CardContent>
-                                <HelpCircle className="absolute top-6 right-6 h-5 w-5 text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:text-accent-foreground" />
-                            </Card>
-                        ))}
+            {detailedServiceGroups.map((group, groupIndex) => {
+                const id = group.category === "II. Судебное представительство" ? "judicial-representation" :
+                           group.category === "III. Отдельные услуги по банкротству" ? "bankruptcy-services" :
+                           undefined;
+                return (
+                    <div id={id} key={group.category} className="scroll-mt-20">
+                        <AnimatedSection 
+                            animationType={groupIndex % 2 === 0 ? 'slide-left' : 'slide-right'}
+                            className="space-y-6"
+                        >
+                            <h3 className="text-2xl font-headline font-semibold text-center md:text-left">{group.category}</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                                {group.items.map((service, itemIndex) => (
+                                    <Card 
+                                        key={itemIndex} 
+                                        onClick={() => handleServiceClick(service)}
+                                        className="group relative flex flex-col border-2 border-transparent hover:border-primary/50 hover:bg-accent transition-colors duration-300 cursor-pointer"
+                                    >
+                                        <CardHeader className="flex-grow">
+                                            <CardTitle className="text-xl font-body font-semibold group-hover:text-accent-foreground pr-8">{service.name}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-lg text-muted-foreground font-semibold group-hover:text-accent-foreground">{service.price}</p>
+                                        </CardContent>
+                                        <HelpCircle className="absolute top-6 right-6 h-5 w-5 text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-hover:text-accent-foreground" />
+                                    </Card>
+                                ))}
+                            </div>
+                        </AnimatedSection>
                     </div>
-                </AnimatedSection>
-            ))}
+                )
+            })}
           </div>
         </div>
 
