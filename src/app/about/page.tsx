@@ -66,7 +66,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow pt-14">
         <section className="container py-20 sm:py-24">
           <AnimatedSection>
             <div className="text-center space-y-4 max-w-3xl mx-auto mb-16">
