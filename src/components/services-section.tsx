@@ -87,7 +87,7 @@ export function ServicesSection() {
         <AnimatedSection className="text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Направления работы</h2>
           <p className="text-lg text-muted-foreground">
-            Основные сферы моей юридической практики. Для детального ознакомления с услугами и ценами, пролистайте ниже.
+            Основные сферы моей юридической практики. Для детального ознакомления с услугами и ценами пролистайте ниже.
           </p>
         </AnimatedSection>
 
