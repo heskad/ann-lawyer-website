@@ -1,0 +1,45 @@
+name: Deploy Static Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # Change this if your main branch is different
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Required to write to the gh-pages branch
+      pages: write    # Required to deploy to GitHub Pages
+      id-token: write # Required for OpenID Connect (OIDC) authentication
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Or a Node.js version compatible with your Next.js
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.next/export # The directory containing the static build
+          publish_branch: gh-pages    # The branch to deploy to
