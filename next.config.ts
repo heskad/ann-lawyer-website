@@ -1,10 +1,7 @@
-Это создаст папку `.next/export`.
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'export',
-  basePath: '/ann-lawyer-website',
   typescript: {
     ignoreBuildErrors: true,
   },
