@@ -6,12 +6,14 @@ import { GraduationCap, Briefcase, Award, CheckCircle2 } from 'lucide-react';
 
 const educationData = [
   {
-    degree: "Юриспруденция (магистр): Гражданское и семейное право",
+    degree: "Юриспруденция (магистр):",
+    specialization: "Гражданское и семейное право",
     institution: "Санкт-Петербургский государственный университет, Юридический факультет",
     period: "2019",
   },
     {
     degree: "Юриспруденция (бакалавр)",
+    specialization: null,
     institution: "Санкт-Петербургский государственный университет, Юридический факультет",
     period: "2017",
   },
@@ -102,7 +104,10 @@ export default function AboutPage() {
                         {educationData.map((edu, index) => (
                             <Card key={index} className="bg-secondary/50">
                                 <CardHeader>
-                                    <CardTitle className="font-body text-xl">{edu.degree}</CardTitle>
+                                    <CardTitle className="font-body text-xl">
+                                      {edu.degree}
+                                      {edu.specialization && <span className="block text-lg font-normal text-muted-foreground mt-1">{edu.specialization}</span>}
+                                    </CardTitle>
                                     <CardDescription>{edu.institution}</CardDescription>
                                     <p className="text-sm text-muted-foreground pt-2">{edu.period}</p>
                                 </CardHeader>
