@@ -17,7 +17,6 @@ type ParticleProps = {
 
 export function ClickEffect() {
   const [particles, setParticles] = useState<ParticleProps[]>([]);
-  const [iconIndex, setIconIndex] = useState(0);
 
   const addParticle = useCallback((e: MouseEvent) => {
     const target = e.target as HTMLElement;
@@ -28,17 +27,17 @@ export function ClickEffect() {
     }
     
     const randomColor = colorClasses[Math.floor(Math.random() * colorClasses.length)];
+    const randomIcon = icons[Math.floor(Math.random() * icons.length)];
 
     const newParticle = {
       id: Date.now(),
       x: e.clientX,
       y: e.clientY,
-      IconComponent: icons[iconIndex],
+      IconComponent: randomIcon,
       color: randomColor,
     };
 
     setParticles(currentParticles => [...currentParticles, newParticle]);
-    setIconIndex(currentIndex => (currentIndex + 1) % icons.length);
 
     // Schedule removal of the particle after the animation ends
     setTimeout(() => {
@@ -46,7 +45,7 @@ export function ClickEffect() {
         currentParticles.filter(p => p.id !== newParticle.id)
       );
     }, 1000); // Should match the animation duration
-  }, [iconIndex]);
+  }, []);
 
   useEffect(() => {
     document.addEventListener('click', addParticle);
