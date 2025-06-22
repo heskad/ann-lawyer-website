@@ -5,12 +5,14 @@ import { Gavel, Briefcase, GraduationCap, Award } from 'lucide-react';
 
 // List of icons to cycle through
 const icons = [Gavel, Briefcase, GraduationCap, Award];
+const colorClasses = ['text-primary', 'text-accent'];
 
 type ParticleProps = {
   id: number;
   x: number;
   y: number;
   IconComponent: React.ElementType;
+  color: string;
 };
 
 export function ClickEffect() {
@@ -24,12 +26,15 @@ export function ClickEffect() {
     if (target.closest('a, button, input, [role="button"], [role="dialog"], [role="menuitem"]')) {
       return;
     }
+    
+    const randomColor = colorClasses[Math.floor(Math.random() * colorClasses.length)];
 
     const newParticle = {
       id: Date.now(),
       x: e.clientX,
       y: e.clientY,
       IconComponent: icons[iconIndex],
+      color: randomColor,
     };
 
     setParticles(currentParticles => [...currentParticles, newParticle]);
@@ -52,10 +57,10 @@ export function ClickEffect() {
 
   return (
     <>
-      {particles.map(({ id, x, y, IconComponent }) => (
+      {particles.map(({ id, x, y, IconComponent, color }) => (
         <IconComponent
           key={id}
-          className="pointer-events-none absolute h-6 w-6 animate-fall-and-fade text-primary"
+          className={`pointer-events-none absolute h-6 w-6 animate-fall-and-fade ${color}`}
           style={{
             position: 'fixed',
             left: `${x}px`,

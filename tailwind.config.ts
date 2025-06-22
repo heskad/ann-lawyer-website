@@ -95,8 +95,8 @@ export default {
           },
         },
         'fall-and-fade': {
-          '0%': { transform: 'translate(-50%, -50%) translateY(0) scale(1)', opacity: '1' },
-          '100%': { transform: 'translate(-50%, -50%) translateY(30px) scale(0.8)', opacity: '0' },
+          '0%': { transform: 'translate(-50%, -50%) translateY(15px) scale(1)', opacity: '1' },
+          '100%': { transform: 'translate(-50%, -50%) translateY(45px) scale(0.8)', opacity: '0' },
         },
       },
       animation: {
