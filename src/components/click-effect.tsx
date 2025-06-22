@@ -55,7 +55,7 @@ export function ClickEffect() {
       {particles.map(({ id, x, y, IconComponent }) => (
         <IconComponent
           key={id}
-          className="pointer-events-none absolute h-6 w-6 animate-pop-out text-primary"
+          className="pointer-events-none absolute h-6 w-6 animate-fall-and-fade text-primary"
           style={{
             position: 'fixed',
             left: `${x}px`,
