@@ -80,8 +80,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-5 gap-12">
             <div className="md:col-span-3 space-y-12">
                 <AnimatedSection delay={200} animationType="slide-right">
-                    <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3">
-                        <Briefcase className="h-8 w-8 text-primary" />
+                    <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3 group cursor-pointer">
+                        <Briefcase className="h-8 w-8 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1" />
                         Опыт работы
                     </h2>
                     <div className="space-y-8 relative border-l-2 border-primary/20 pl-8">
@@ -106,8 +106,8 @@ export default function AboutPage() {
             </div>
             <div className="md:col-span-2 space-y-12">
                  <AnimatedSection delay={200} animationType="slide-left">
-                    <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3">
-                        <GraduationCap className="h-8 w-8 text-primary" />
+                    <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3 group cursor-pointer">
+                        <GraduationCap className="h-8 w-8 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1" />
                         Образование
                     </h2>
                      <div className="space-y-6">
@@ -126,8 +126,8 @@ export default function AboutPage() {
                     </div>
                 </AnimatedSection>
                 <AnimatedSection delay={400} animationType="slide-left">
-                     <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3">
-                        <Award className="h-8 w-8 text-primary" />
+                     <h2 className="text-3xl font-headline font-semibold mb-6 flex items-center gap-3 group cursor-pointer">
+                        <Award className="h-8 w-8 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1" />
                         Ключевые принципы
                     </h2>
                      <Card className="bg-secondary/50">
