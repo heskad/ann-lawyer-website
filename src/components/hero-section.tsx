@@ -18,7 +18,7 @@ export function HeroSection() {
             <Button asChild size="lg">
               <Link href="/#services">Мои Услуги</Link>
             </Button>
-            <Button asChild size="lg" variant="secondary">
+            <Button asChild size="lg" variant="outline">
               <Link href="/about">Обо мне</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
