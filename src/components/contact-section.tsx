@@ -15,12 +15,21 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useFormState } from "react-dom";
 import { handleContactForm } from "@/lib/actions";
 import { AnimatedSection } from "./animated-section";
 import { contactSchema } from "@/lib/types";
 import { SubmitButton } from "./submit-button";
+import { Tabs, TabsList, TabsTrigger } from "./ui/tabs";
+import { Mail, Phone, Send } from "lucide-react";
+
+const contactOptions = {
+  telegram: { label: "Telegram", icon: <Send />, placeholder: "Ваш @username" },
+  whatsapp: { label: "WhatsApp", icon: <Phone />, placeholder: "Ваш номер телефона" },
+  phone: { label: "Звонок", icon: <Phone />, placeholder: "Ваш номер телефона" },
+  email: { label: "Почта", icon: <Mail />, placeholder: "vash.email@example.com" },
+};
 
 
 export function ContactSection() {
@@ -30,14 +39,30 @@ export function ContactSection() {
     status: "",
   });
 
+  const [num1, setNum1] = useState(1);
+  const [num2, setNum2] = useState(2);
+
+  useEffect(() => {
+    // Generate random numbers only on the client-side after mount
+    // to prevent hydration errors.
+    setNum1(Math.floor(Math.random() * 10));
+    setNum2(Math.floor(Math.random() * 10));
+  }, []);
+
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
-      email: "",
+      contactMethod: "telegram",
+      contact: "",
       message: "",
+      captcha: "",
     },
   });
+
+  const contactMethod = form.watch("contactMethod");
+  const contactDetails = useMemo(() => contactOptions[contactMethod as keyof typeof contactOptions], [contactMethod]);
+
 
   useEffect(() => {
     if (state.status === "success") {
@@ -68,6 +93,7 @@ export function ContactSection() {
         <div className="max-w-xl mx-auto">
           <Form {...form}>
             <form action={formAction} className="space-y-8">
+              <input type="hidden" name="captchaExpected" value={num1 + num2} />
               <FormField
                 control={form.control}
                 name="name"
@@ -81,19 +107,48 @@ export function ContactSection() {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
-                name="email"
+                name="contactMethod"
                 render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Электронная почта</FormLabel>
+                  <FormItem className="space-y-3">
+                    <FormLabel>Предпочитаемый способ связи</FormLabel>
                     <FormControl>
-                      <Input placeholder="vash.email@example.com" {...field} />
+                      <Tabs
+                        defaultValue={field.value}
+                        onValueChange={field.onChange}
+                        className="w-full"
+                      >
+                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
+                          {Object.entries(contactOptions).map(([key, value]) => (
+                             <TabsTrigger key={key} value={key} className="flex flex-col sm:flex-row gap-2 py-2 sm:py-1.5">
+                               {value.icon}
+                               {value.label}
+                             </TabsTrigger>
+                          ))}
+                        </TabsList>
+                      </Tabs>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
+               <FormField
+                  control={form.control}
+                  name="contact"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{contactDetails.label}</FormLabel>
+                      <FormControl>
+                        <Input placeholder={contactDetails.placeholder} {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
               <FormField
                 control={form.control}
                 name="message"
@@ -111,7 +166,22 @@ export function ContactSection() {
                   </FormItem>
                 )}
               />
-              <SubmitButton />
+
+              <FormField
+                control={form.control}
+                name="captcha"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Для защиты от спама, решите задачу: {num1} + {num2} = ?</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Ваш ответ" {...field} type="number" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <SubmitButton pendingText="Отправка...">Отправить сообщение</SubmitButton>
             </form>
           </Form>
         </div>

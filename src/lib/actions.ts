@@ -13,8 +13,10 @@ export async function handleContactForm(
 ): Promise<State> {
   const validatedFields = contactSchema.safeParse({
     name: formData.get("name"),
-    email: formData.get("email"),
+    contactMethod: formData.get("contactMethod"),
+    contact: formData.get("contact"),
     message: formData.get("message"),
+    captcha: formData.get("captcha"),
   });
 
   if (!validatedFields.success) {
@@ -24,10 +26,19 @@ export async function handleContactForm(
     };
   }
 
+  const captchaExpected = formData.get("captchaExpected");
+
+  if (validatedFields.data.captcha !== captchaExpected) {
+    return {
+      message: "Неверный ответ на вопрос для защиты от спама.",
+      status: "error",
+    };
+  }
+
   // Simulate sending an email
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  console.log("Form data:", validatedFields.data);
+  console.log("Contact Form data:", validatedFields.data);
 
   return {
     message: "Спасибо за ваше сообщение! Я свяжусь с вами в ближайшее время.",
