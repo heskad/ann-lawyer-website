@@ -6,9 +6,14 @@ import { GraduationCap, Briefcase, Award, CheckCircle2 } from 'lucide-react';
 
 const educationData = [
   {
-    degree: "Магистр юриспруденции, Гражданское право",
-    institution: "Московский государственный юридический университет имени О.Е. Кутафина (МГЮА)",
-    period: "2010 - 2015",
+    degree: "Юриспруденция (магистр)",
+    institution: "Санкт-Петербургский государственный университет, Юридический факультет",
+    period: "2019",
+  },
+    {
+    degree: "Юриспруденция (бакалавр)",
+    institution: "Санкт-Петербургский государственный университет, Юридический факультет",
+    period: "2017",
   },
 ];
 
@@ -81,7 +86,7 @@ export default function AboutPage() {
                                     <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
                                         {job.responsibilities.map((item, i) => <li key={i}>{item}</li>)}
                                     </ul>
-                                </CardContent>
+                                 </CardContent>
                             </Card>
                         ))}
                     </div>
