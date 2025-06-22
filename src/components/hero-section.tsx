@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from './animated-section';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
@@ -13,12 +14,15 @@ export function HeroSection() {
           <p className="text-lg text-muted-foreground max-w-[600px]">
             Опытный юрист, специализирующийся на банкротстве и представлении интересов в суде. Добро пожаловать на мой персональный сайт.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-4">
             <Button asChild size="lg">
-              <a href="#services">Мои Услуги</a>
+              <Link href="/#services">Мои Услуги</Link>
+            </Button>
+            <Button asChild size="lg" variant="secondary">
+              <Link href="/about">Обо мне</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <a href="#contact">Связаться</a>
+              <Link href="/#contact">Связаться</Link>
             </Button>
           </div>
         </div>
