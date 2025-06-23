@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ClickEffect } from '@/components/click-effect';
+import { ScrollToTopButton } from '@/components/scroll-to-top';
 
 export const metadata: Metadata = {
   title: 'Юридические Услуги | ИП Кондратьева А.В.',
@@ -31,6 +32,7 @@ export default function RootLayout({
           <ClickEffect />
           {children}
           <Toaster />
+          <ScrollToTopButton />
         </ThemeProvider>
       </body>
     </html>
