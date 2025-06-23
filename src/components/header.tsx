@@ -18,6 +18,7 @@ export function Header() {
     { name: "Обо мне", href: "/about" },
     { name: "Услуги", href: "/#services" },
     { name: "Отзывы", href: "/reviews" },
+    { name: "Практика", href: "/practice" },
     { name: "FAQ", href: "/#faq" },
     { name: "Контакты", href: "/#contact" },
   ];
