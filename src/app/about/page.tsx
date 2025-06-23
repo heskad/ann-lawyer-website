@@ -87,7 +87,7 @@ export default function AboutPage() {
                     <div className="space-y-8 relative border-l-2 border-primary/20 pl-8">
                          <div className="absolute -left-[11px] top-2 w-5 h-5 bg-primary rounded-full ring-4 ring-background"></div>
                         {experienceData.map((job, index) => (
-                            <Card key={index} className="bg-secondary/50">
+                            <Card key={index} className="bg-secondary/50 transition-all duration-300 ease-in-out hover:border-accent/30 hover:shadow-lg hover:shadow-accent/20 dark:hover:border-primary/30 dark:hover:shadow-primary/20">
                                 <CardHeader>
                                     <CardTitle className="font-body text-xl">{job.role}</CardTitle>
                                     <CardDescription>
@@ -112,7 +112,7 @@ export default function AboutPage() {
                     </h2>
                      <div className="space-y-6">
                         {educationData.map((edu, index) => (
-                            <Card key={index} className="bg-secondary/50">
+                            <Card key={index} className="bg-secondary/50 transition-all duration-300 ease-in-out hover:border-accent/30 hover:shadow-lg hover:shadow-accent/20 dark:hover:border-primary/30 dark:hover:shadow-primary/20">
                                 <CardHeader>
                                     <CardTitle className="font-body text-xl">
                                       {edu.degree}
@@ -130,7 +130,7 @@ export default function AboutPage() {
                         <Award className="h-8 w-8 text-primary transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1" />
                         Ключевые принципы
                     </h2>
-                     <Card className="bg-secondary/50">
+                     <Card className="bg-secondary/50 transition-all duration-300 ease-in-out hover:border-accent/30 hover:shadow-lg hover:shadow-accent/20 dark:hover:border-primary/30 dark:hover:shadow-primary/20">
                          <CardContent className="pt-6">
                             <ul className="space-y-4 text-muted-foreground">
                                 <li className="flex gap-3">
