@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .nav-link-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.25) 0%, transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+    border-radius: var(--radius);
+  }
+
+  .nav-link-glow:hover::before {
+    opacity: 1;
+  }
+}
+
 @layer base {
   :root {
     --background: 33 13% 97%;
