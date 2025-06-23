@@ -60,7 +60,7 @@ export default function PracticePage() {
           <div className="space-y-12">
             {caseStudies.map((study, index) => (
               <AnimatedSection key={index} delay={index * 200}>
-                <Card className="bg-secondary/50 overflow-hidden">
+                <Card className="bg-secondary/50 transition-all duration-300 ease-in-out hover:border-primary/30 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1">
                     <CardHeader>
                         <CardTitle className="font-headline text-2xl md:text-3xl">{study.title}</CardTitle>
                         <div className="flex flex-wrap gap-2 pt-2">
