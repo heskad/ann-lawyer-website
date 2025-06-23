@@ -38,15 +38,32 @@ export function Header() {
         <div className="flex items-center gap-4">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-2 text-sm">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="relative rounded-md px-3 py-1.5 text-foreground/80 transition-colors hover:text-foreground nav-link-glow"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.flatMap((link, index) => {
+              const linkElement = (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="relative rounded-md px-3 py-1.5 text-foreground/80 transition-colors hover:text-foreground nav-link-glow"
+                >
+                  {link.name}
+                </Link>
+              );
+
+              if (index === 0) {
+                return [
+                  linkElement,
+                  <span
+                    key="separator"
+                    className="select-none text-muted-foreground/60"
+                    aria-hidden="true"
+                  >
+                    |
+                  </span>,
+                ];
+              }
+
+              return [linkElement];
+            })}
           </nav>
           
           <ThemeToggle />
