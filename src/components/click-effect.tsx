@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Gavel, Briefcase, GraduationCap, Award } from 'lucide-react';
+import { Gavel, Briefcase, GraduationCap, Award, ShieldCheck, Target, Trophy } from 'lucide-react';
 
 // List of icons to cycle through
-const icons = [Gavel, Briefcase, GraduationCap, Award];
+const icons = [Gavel, Briefcase, GraduationCap, Award, ShieldCheck, Target, Trophy];
 const colorClasses = ['text-primary', 'text-accent'];
 
 type ParticleProps = {
