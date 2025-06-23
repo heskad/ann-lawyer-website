@@ -74,7 +74,7 @@ export default function ReviewsPage() {
           <AnimatedSection delay={200}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {reviewsData.map((review, index) => (
-                <Card key={index} className="flex flex-col bg-secondary/50">
+                <Card key={index} className="flex flex-col bg-secondary/50 transition-all duration-300 ease-in-out hover:border-accent/30 hover:shadow-lg hover:shadow-accent/20 dark:hover:border-primary/30 dark:hover:shadow-primary/20">
                   <CardHeader>
                     <div className="flex items-center gap-4">
                       <Avatar>
