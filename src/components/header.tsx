@@ -14,12 +14,12 @@ import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   const navLinks = [
-    { name: "Главная", href: "/" },
     { name: "Обо мне", href: "/about" },
+    { name: "Главная", href: "/" },
     { name: "Услуги", href: "/#services" },
-    { name: "Отзывы", href: "/reviews" },
     { name: "Практика", href: "/practice" },
     { name: "FAQ", href: "/#faq" },
+    { name: "Отзывы", href: "/reviews" },
     { name: "Контакты", href: "/#contact" },
   ];
 
