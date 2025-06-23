@@ -59,7 +59,7 @@ export function ClickEffect() {
       {particles.map(({ id, x, y, IconComponent, color }) => (
         <IconComponent
           key={id}
-          className={`pointer-events-none absolute h-6 w-6 animate-fall-and-fade ${color}`}
+          className={`pointer-events-none absolute h-6 w-6 animate-jump-left-and-fade ${color}`}
           style={{
             position: 'absolute',
             left: `${x}px`,
