@@ -26,27 +26,17 @@ import { useToast } from "@/hooks/use-toast";
 import { handleConsultationForm } from "@/lib/actions";
 import { consultationSchema } from "@/lib/types";
 import { SubmitButton } from "./submit-button";
-import { Mail, Phone, Send } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import Image from 'next/image';
 import { Label } from "@/components/ui/label";
 
 type ConsultationModalProps = {
   setIsModalOpen: (isOpen: boolean) => void;
 };
 
-const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      {...props}
-    >
-      <path d="M16.75 13.96c.25.13.43.2.5.33.07.13.07.66 0 1.2-.07.53-.53 1-1.04 1.13-.5.13-1.04.2-1.52.13-.48-.07-1.13-.26-1.94-.66-.96-.46-1.76-1.1-2.4-1.85-.64-.75-1.1-1.52-1.4-2.2-.3-.68-.43-1.3-.4-1.8.04-.5.23-.9.5-1.15.27-.26.56-.36.83-.33.26.03.48.07.66.36s.28.7.35.93c.07.23.07.5,0,.7-.07.2-.13.3-.26.43-.13.14-.23.24-.33.34-.1.1-.2.2-.26.3-.07.1-.04.2.03.3.07.1.24.4.5.65.25.26.52.5.8.7.27.2.52.33.7.4.2.06.3.1.4.04.1-.07.43-.5.56-.66.14-.17.3-.26.5-.23.2.03.85.4 1 .65.14.23.23.36.26.46.03.1.03.26,0,.4zM12 2a10 10 0 0 0-10 10c0 1.8.5 3.5 1.4 5.1L2 22l5.3-1.4c1.5.8 3.2 1.4 5.1 1.4h.1c5.5 0 9.9-4.4 9.9-9.9S17.6 2 12.1 2h-.1z"/>
-    </svg>
-);
-
 const contactOptions = {
-  telegram: { label: "Telegram", icon: <Send />, placeholder: "Ваш @username" },
-  whatsapp: { label: "WhatsApp", icon: <WhatsAppIcon />, placeholder: "Ваш номер телефона" },
+  telegram: { label: "Telegram", icon: <Image src="/telegram.svg" alt="Telegram" width={20} height={20} />, placeholder: "Ваш @username" },
+  whatsapp: { label: "WhatsApp", icon: <Image src="/whatsapp.svg" alt="WhatsApp" width={20} height={20} />, placeholder: "Ваш номер телефона" },
   phone: { label: "Звонок", icon: <Phone />, placeholder: "Ваш номер телефона" },
   email: { label: "Почта", icon: <Mail />, placeholder: "vash.email@example.com" },
 };
