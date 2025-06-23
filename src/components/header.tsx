@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Gavel, Menu } from "lucide-react";
@@ -20,11 +21,12 @@ export function Header() {
     { name: "Практика", href: "/practice" },
     { name: "FAQ", href: "/#faq" },
     { name: "Отзывы", href: "/reviews" },
+    { name: "Мерч", href: "/merch" },
     { name: "Контакты", href: "/#contact" },
   ];
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 transform-gpu">
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-sm transform-gpu">
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <Gavel className="h-6 w-6 text-primary" />
