@@ -26,8 +26,8 @@ import { Mail, Phone } from "lucide-react";
 import Image from 'next/image';
 
 const contactOptions = {
-  telegram: { label: "Telegram", icon: <Image src="/telegram.svg" alt="Telegram" width={20} height={20} />, placeholder: "Ваш @username" },
-  whatsapp: { label: "WhatsApp", icon: <Image src="/whatsapp.svg" alt="WhatsApp" width={20} height={20} />, placeholder: "Ваш номер телефона" },
+  telegram: { label: "Telegram", icon: <Image src="/telegram.png" alt="Telegram" width={20} height={20} />, placeholder: "Ваш @username" },
+  whatsapp: { label: "WhatsApp", icon: <Image src="/whatsapp.png" alt="WhatsApp" width={20} height={20} />, placeholder: "Ваш номер телефона" },
   phone: { label: "Звонок", icon: <Phone />, placeholder: "Ваш номер телефона" },
   email: { label: "Почта", icon: <Mail />, placeholder: "vash.email@example.com" },
 };
