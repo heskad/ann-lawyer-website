@@ -61,6 +61,7 @@ export default function MerchPage() {
                             <p className="text-sm text-muted-foreground">
                                 Вы также можете приобрести картхолдер отдельно. Это отличный подарок для себя или близких, ценящих качественные вещи ручной работы.
                             </p>
+                            <p className="text-lg font-semibold text-primary mt-2">Цена: 2500 ₽</p>
                         </div>
                     </div>
                 </div>
